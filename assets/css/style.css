@@ -2104,6 +2104,25 @@ li::marker {
   color: var(--text-secondary);
 }
 
+/* 카카오 애드핏 300x250 공통 슬롯 */
+.kakao-ad--shared {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 250px;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.kakao-ad--shared .kakao_ad_area {
+  display: block;
+  width: 300px;
+  height: 250px;
+  max-width: 100%;
+}
+
 /* 프로그레스 바 */
 .progress-section {
   padding: 24px 0 8px;

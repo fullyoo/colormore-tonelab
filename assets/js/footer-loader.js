@@ -1,7 +1,7 @@
 /**
  * 공통 푸터 컴포넌트 로더
  * - data-base: 루트는 "", 하위 폴더는 "../"
- * - Google AdSense 승인을 위한 개인정보처리방침·이용약관 링크 포함
+ * - 카카오 애드핏 광고를 페이지당 한 번만 배치
  */
 (function () {
   var script = document.getElementById('footer-loader') || document.querySelector('script[data-footer-loader]');
@@ -31,6 +31,40 @@
     });
   }
 
+  function addKakaoAd() {
+    if (document.querySelector('.kakao_ad_area')) return;
+
+    var adWrap = document.createElement('div');
+    adWrap.className = 'kakao-ad kakao-ad--shared';
+    adWrap.setAttribute('aria-label', '광고');
+
+    var ad = document.createElement('ins');
+    ad.className = 'kakao_ad_area';
+    ad.style.display = 'none';
+    ad.setAttribute('data-ad-unit', 'DAN-wbWRX4MPvHo55bQ9');
+    ad.setAttribute('data-ad-width', '300');
+    ad.setAttribute('data-ad-height', '250');
+    adWrap.appendChild(ad);
+
+    var hero = document.querySelector('.test-page-hero');
+    if (hero && hero.parentNode) {
+      hero.parentNode.insertBefore(adWrap, hero.nextSibling);
+    } else if (placeholder && placeholder.parentNode) {
+      placeholder.parentNode.insertBefore(adWrap, placeholder);
+    } else {
+      document.body.appendChild(adWrap);
+    }
+
+    if (!document.querySelector('script[data-kakao-ad-script]')) {
+      var kakaoScript = document.createElement('script');
+      kakaoScript.type = 'text/javascript';
+      kakaoScript.src = '//t1.kakaocdn.net/kas/static/ba.min.js';
+      kakaoScript.async = true;
+      kakaoScript.setAttribute('data-kakao-ad-script', 'true');
+      document.head.appendChild(kakaoScript);
+    }
+  }
+
   Promise.all([
     fetch(footerUrl).then(function (r) { return r.text(); }),
     fetch(menuUrl).then(function (r) { return r.text(); })
@@ -41,6 +75,7 @@
       placeholder.innerHTML = footerHtml.replace(/\{\{BASE\}\}/g, base);
       applyFooterActive(placeholder);
     }
+    addKakaoAd();
     var menuWrap = document.createElement('div');
     menuWrap.className = 'floating-menu-wrap';
     menuWrap.innerHTML = menuHtml;
