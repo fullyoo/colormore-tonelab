@@ -1,0 +1,9 @@
+# Netlify 배포 설정
+# - Publish directory를 이 폴더(.)로 설정해 index.html, contact.html 등이 루트에 배포되도록 합니다.
+# - Git 연동 시: Netlify 대시보드 > Site configuration > Build & deploy > Build settings
+#   - Base directory: 프로젝트 폴더(예: 컬러미)가 루트가 아니라면 해당 폴더명 입력
+#   - Publish directory: 비워두면 이 toml의 publish = "." 적용
+
+[build]
+  publish = "."
+  command = ""
