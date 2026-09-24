@@ -892,7 +892,7 @@ li::marker {
 
 /* ---------- 정책/소개 페이지 (개인정보처리방침, 이용약관, 사이트 소개) ---------- */
 .policy-page {
-  padding: 40px 0 80px;
+  padding: 40px 0;
 }
 
 .policy-page:has(.about-content) {
@@ -902,6 +902,8 @@ li::marker {
 .policy-content {
   max-width: 720px;
   margin: 0 auto;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .policy-content h2:first-of-type {
@@ -943,6 +945,7 @@ li::marker {
 }
 
 .policy-content section ul li {
+  position: relative;
   padding-left: 13px;
 }
 
@@ -950,6 +953,8 @@ li::marker {
   content: "–";
   position: absolute;
   left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .policy-content section a {
@@ -2111,7 +2116,7 @@ li::marker {
   align-items: center;
   width: 100%;
   min-height: 250px;
-  padding: 24px 16px;
+  padding: 0px 16px 40px;
   box-sizing: border-box;
   overflow: hidden;
 }

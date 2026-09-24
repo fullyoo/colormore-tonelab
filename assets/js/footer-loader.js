@@ -46,9 +46,11 @@
     ad.setAttribute('data-ad-height', '250');
     adWrap.appendChild(ad);
 
-    var hero = document.querySelector('.test-page-hero');
-    if (hero && hero.parentNode) {
-      hero.parentNode.insertBefore(adWrap, hero.nextSibling);
+    var placementTarget = document.querySelector(
+      '.test-page-hero, .section-header, .ai-hero, .intro-hero, .hero, .blog-article-header'
+    );
+    if (placementTarget && placementTarget.parentNode) {
+      placementTarget.parentNode.insertBefore(adWrap, placementTarget.nextSibling);
     } else if (placeholder && placeholder.parentNode) {
       placeholder.parentNode.insertBefore(adWrap, placeholder);
     } else {
