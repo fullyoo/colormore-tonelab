@@ -46,10 +46,13 @@
     ad.setAttribute('data-ad-height', '250');
     adWrap.appendChild(ad);
 
+    var aiAdSlot = document.getElementById('kakao-ad-slot');
     var placementTarget = document.querySelector(
-      '.test-page-hero, .section-header, .ai-hero, .intro-hero, .hero, .blog-article-header'
+      '.ai-hero-desc, .test-page-hero, .section-header, .ai-hero, .intro-hero, .hero, .blog-article-header'
     );
-    if (placementTarget && placementTarget.parentNode) {
+    if (aiAdSlot) {
+      aiAdSlot.appendChild(adWrap);
+    } else if (placementTarget && placementTarget.parentNode) {
       placementTarget.parentNode.insertBefore(adWrap, placementTarget.nextSibling);
     } else if (placeholder && placeholder.parentNode) {
       placeholder.parentNode.insertBefore(adWrap, placeholder);

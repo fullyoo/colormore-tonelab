@@ -873,7 +873,7 @@ li::marker {
 
 .section-header {
   text-align: center;
-  margin-bottom: 48px;
+  /* margin-bottom: 48px; */
 }
 
 .section-header h2,
@@ -892,7 +892,7 @@ li::marker {
 
 /* ---------- 정책/소개 페이지 (개인정보처리방침, 이용약관, 사이트 소개) ---------- */
 .policy-page {
-  padding: 40px 0;
+  padding: 40px 0 0;
 }
 
 .policy-page:has(.about-content) {
@@ -1610,7 +1610,7 @@ li::marker {
 }
 
 .blog-article-header {
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -2116,7 +2116,7 @@ li::marker {
   align-items: center;
   width: 100%;
   min-height: 250px;
-  padding: 0px 16px 40px;
+  padding: 40px 16px;
   box-sizing: border-box;
   overflow: hidden;
 }
